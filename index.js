@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
   },
 });
 
-const upload = multer({ storage: storage });
+const multerUpload = multer({ storage: storage });
 
 // app.set("view engine", "ejs");
 app.use(express.static("view"));
@@ -22,9 +22,22 @@ app.get("/upload", (req, res) => {
   res.render("upload");
 });
 
-app.post("/upload", upload.single("image"), (req, res) => {
+app.post("/upload", multerUpload.single("image"), (req, res) => {
   res.send("Image Uploaded");
 });
+
+app.post("/multiple", multerUpload.array("images", 10), (req, res) => {
+  res.send("multiple images Uploaded");
+});
+
+app.post("/jsonfile", multerUpload.single("jsonfile"), (req, res) => {
+  res.send("jsonfile Uploaded");
+});
+
+// non-multer:    MUST BE CHANGED STILL!!!
+// app.post("/maarten", something.data("images", 10), (req, res) => {
+//   res.send("multiple images Uploaded");
+// });
 
 app.listen(3000);
 console.log("3000 is the port");

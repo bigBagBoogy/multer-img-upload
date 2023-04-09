@@ -15,8 +15,23 @@
   ],
   "author": "Maarten",
   "license": "MIT",
+
+  
   "dependencies": {
     "express": "^4.18.2",
-    "multer": "^1.4.5-lts.1"
+    "multer": "^1.4.5-lts.1",
+    "@aave/protocol-v2": "^1.0.1",
+    "@chainlink/contracts": "^0.5.1",
+    "@ethersproject/bignumber": "^5.5.0",
+    "@openzeppelin/contracts": "^4.5.0",
+    "@pinata/sdk": "^1.1.23",
+    "base64-sol": "^1.1.0",
+    "dotenv": "^16.0.0",
+    "fs": "^0.0.1-security",
+    "mime": "^3.0.0",
+    "nft.storage": "^6.0.1",
+    "path": "^0.12.7",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.7"
   }
 }

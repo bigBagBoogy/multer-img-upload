@@ -11,5 +11,48 @@
       <input type="file" name="image" />
       <input type="submit" />
     </form>
+    <p></p>
+    <form method="POST" action="/multiple" enctype="multipart/form-data">
+      <input type="file" name="images" multiple />
+      <button type="submit">upload up to 10 images</button>
+    </form>
+    <p></p>
+    <form method="POST" action="/jsonfile" enctype="multipart/form-data">
+      <input type="file" name="jsonfile" />
+      <button type="submit">upload metadata json file</button>
+    </form>
+
+
+    <p></p>
+    <!-- below not finished yet -->
+    <form id="form"> 
+      <input type="file" id="file" accept=".png, .jpg, .svg" multiple></input><br>
+      <input type="text" id="comments" placeholder="file comments"><br>
+      <button type="submit">upload without multer</button>
+    </form>
+
+    <script>
+      document.getElementById("form").addEventListener("submit", function(e) {
+        e.preventDefault()
+
+        const userFile = document.getElementById("file").files[0]
+        const userComments = document.getElementById("comments").value
+
+        const formData = new FormData()
+        formData.append("user-file", userFile)
+        formData.append("user-comments", userComments)
+
+        fetch("/maarten", {
+          method: "POST",
+          body: formData,
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
+        .catch(err => console.log(err))
+
+
+
+      })
+    </script>
   </body>
 </html>

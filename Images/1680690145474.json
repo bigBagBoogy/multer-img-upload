@@ -1,0 +1,11 @@
+{
+    "name": "PotKitten",
+    "description": "An adorable kitten in a pot!",
+    "image": "ipfs://QmWjaXomY9Ftw73v8Ju2JCLF8MHEkXBhdxjkByKCRMYzCK",
+    "attributes": [
+        {
+            "trait_type": "cuteness",
+            "value": 115
+        }
+    ]
+}
