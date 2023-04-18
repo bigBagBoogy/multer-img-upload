@@ -42,12 +42,19 @@ app.post("/stats", multerUpload.single("uploaded_file"), function (req, res) {
   // console.log("-------------------------------------");
   console.log(req.body);
   const metaData = stringify(req.body);
-  console.log(metaData);
+  console.log(`raw incoming metaData: ${metaData}`);
+  let half = metaData.replace(/=/gi, `": "`);
+  let endr = half.replace(/&/gi, `",\n"`);
+  let anfang = `{"`;
+  let schluss = `"}`;
+  let barb = anfang.concat(endr);
+  let maart = barb.concat(schluss);
+
   res.send(
-    `Succes uploading! ${decodeURI(metaData)}, please go to previous page`
+    `Succes uploading! \n ${decodeURI(maart)}, please go to previous page`
   );
   //Now we want to use FS to fsWriteFile(req.body, "./metadata.json")
-  let data = metaData;
+  let data = maart;
   fs.writeFileSync("metadata.json", data);
   console.log("File written successfully\n");
   console.log("The written has the following contents:");
