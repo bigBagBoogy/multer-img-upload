@@ -22,9 +22,50 @@
       <button type="submit">upload metadata json file</button>
     </form>
 
-
     <p></p>
+    <img
+      class="fun-spacer"
+      width="100"
+      height="100"
+      src="bear.png"
+      alt="bear"
+    />
+    <p></p>
+    <form action="/stats" enctype="multipart/form-data" method="post">
+      <div class="form-group">
+        <input
+          type="file"
+          class="form-control-file"
+          name="uploaded_file"
+        /><br />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Metadata"
+          name="metadata"
+        /><br />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Metadata2"
+          name="metadata2"
+        /><br />
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Metadata3"
+          name="metadata3"
+        />
+        <input
+          type="submit"
+          value="npm-multer-method"
+          class="btn btn-default"
+        />
+      </div>
+    </form>
     <!-- below not finished yet -->
+
+    <!--     
     <form id="form"> 
       <input type="file" id="file" accept=".png, .jpg, .svg" multiple></input><br>
       <input type="text" id="comments" placeholder="file comments"><br>
@@ -49,10 +90,7 @@
         .then(res => res.json())
         .then(data => console.log(data))
         .catch(err => console.log(err))
-
-
-
       })
-    </script>
+    </script> -->
   </body>
 </html>
